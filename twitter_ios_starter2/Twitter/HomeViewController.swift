@@ -97,38 +97,34 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tweetArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as! TweetTableViewCell
         
-//        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
-//        let nameOfUser = user["name"] as? String
-//        let tweetContent = tweetArray[indexPath.row]["text"] as? String
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        let nameOfUser = user["name"] as? String
+        let tweetContent = tweetArray[indexPath.row]["text"] as? String
         
-//        let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
-//        let data = try? Data(contentsOf: imageUrl!)
-//        if let imageData = data {
-            // set the cell imageview to the image
-//            cell.userImageView.image = UIImage(data: imageData)
-//        }
+        cell.username.text = nameOfUser
+        cell.tweetLbl.text = tweetContent
         
-//        if let imageData = d
-        
-        
-        
-        
-        
+        let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageUrl!)
+        if let imageData = data {
+//             set the cell imageview to the image
+            cell.userImageView.image = UIImage(data: imageData)
+        }
         
         return cell
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150
+//    }
 }
 

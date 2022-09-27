@@ -15,14 +15,13 @@ class TweetTableViewCell: UITableViewCell {
     let userImageView: UIImageView = {
         let imgview = UIImageView()
         imgview.translatesAutoresizingMaskIntoConstraints = false
-        imgview.backgroundColor = .red
+        imgview.contentMode = .scaleToFill
         return imgview
     }()
     
     let username: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.backgroundColor = .gray
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.text = "John Doe"
         
@@ -34,7 +33,6 @@ class TweetTableViewCell: UITableViewCell {
     let tweetLbl: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.backgroundColor = .green
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tweet Content"
@@ -47,7 +45,7 @@ class TweetTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        self.backgroundColor = .yellow
-        contentView.backgroundColor = .yellow
+//        contentView.backgroundColor = .yellow
         addSubviews()
         addConstraints()
         
