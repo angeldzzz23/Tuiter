@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		18DE3C7B50A1614FBAB647AB /* Pods_Tuiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EFCF86E23554F9D06FFD7B /* Pods_Tuiter.framework */; };
+		1C2955E428E2760F0022A2E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2955E328E2760F0022A2E2 /* LoginViewController.swift */; };
 		1CC60A0E28DAA7D3005027C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC60A0D28DAA7D3005027C1 /* AppDelegate.swift */; };
 		1CC60A1028DAA7D3005027C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC60A0F28DAA7D3005027C1 /* SceneDelegate.swift */; };
-		1CC60A1228DAA7D3005027C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC60A1128DAA7D3005027C1 /* ViewController.swift */; };
+		1CC60A1228DAA7D3005027C1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC60A1128DAA7D3005027C1 /* HomeViewController.swift */; };
 		1CC60A1728DAA7D3005027C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC60A1628DAA7D3005027C1 /* Assets.xcassets */; };
 		1CC60A1A28DAA7D3005027C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC60A1828DAA7D3005027C1 /* LaunchScreen.storyboard */; };
 		1CC60A2528DAA7D4005027C1 /* TuiterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC60A2428DAA7D4005027C1 /* TuiterTests.swift */; };
@@ -41,10 +42,11 @@
 /* Begin PBXFileReference section */
 		0B398BFD1752A093EF1C3B18 /* Pods-Tuiter-TuiterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuiter-TuiterUITests.release.xcconfig"; path = "Target Support Files/Pods-Tuiter-TuiterUITests/Pods-Tuiter-TuiterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1036933E7C8EC8949292AF68 /* Pods-Tuiter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tuiter.debug.xcconfig"; path = "Target Support Files/Pods-Tuiter/Pods-Tuiter.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2955E328E2760F0022A2E2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CC60A0A28DAA7D3005027C1 /* Tuiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuiter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC60A0D28DAA7D3005027C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC60A0F28DAA7D3005027C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1CC60A1128DAA7D3005027C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CC60A1128DAA7D3005027C1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1CC60A1628DAA7D3005027C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC60A1928DAA7D3005027C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CC60A1B28DAA7D3005027C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +120,8 @@
 			children = (
 				1CC60A0D28DAA7D3005027C1 /* AppDelegate.swift */,
 				1CC60A0F28DAA7D3005027C1 /* SceneDelegate.swift */,
-				1CC60A1128DAA7D3005027C1 /* ViewController.swift */,
+				1CC60A1128DAA7D3005027C1 /* HomeViewController.swift */,
+				1C2955E328E2760F0022A2E2 /* LoginViewController.swift */,
 				1CC60A3D28DAAB71005027C1 /* TwitterAPICaller.swift */,
 				1CC60A1628DAA7D3005027C1 /* Assets.xcassets */,
 				1CC60A1828DAA7D3005027C1 /* LaunchScreen.storyboard */,
@@ -405,9 +408,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CC60A1228DAA7D3005027C1 /* ViewController.swift in Sources */,
+				1CC60A1228DAA7D3005027C1 /* HomeViewController.swift in Sources */,
 				1CC60A3E28DAAB71005027C1 /* TwitterAPICaller.swift in Sources */,
 				1CC60A0E28DAA7D3005027C1 /* AppDelegate.swift in Sources */,
+				1C2955E428E2760F0022A2E2 /* LoginViewController.swift in Sources */,
 				1CC60A1028DAA7D3005027C1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
