@@ -1,6 +1,0 @@
-framework module Pods_Tuiter {
-  umbrella header "Pods-Tuiter-umbrella.h"
-
-  export *
-  module * { export * }
-}

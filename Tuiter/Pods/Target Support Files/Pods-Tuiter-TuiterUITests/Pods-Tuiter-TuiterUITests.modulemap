@@ -1,6 +1,0 @@
-framework module Pods_Tuiter_TuiterUITests {
-  umbrella header "Pods-Tuiter-TuiterUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
