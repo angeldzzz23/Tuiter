@@ -14,7 +14,7 @@ class LogINViewController: UIViewController {
   
     let Loginbutton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.backgroundColor = .init(red: 76/255, green: 158/255, blue: 235/255, alpha: 1)
+//        btn.backgroundColor = .init(red: 76/255, green: 158/255, blue: 235/255, alpha: 1)
         btn.setTitle("Login", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(loginButtonWasPressed), for: .touchUpInside)
