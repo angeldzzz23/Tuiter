@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+/// This is my login viewcontroller
+/// This is also my rootVC
 class LoginViewController: UIViewController {
 
     let Loginbutton: UIButton = {
@@ -21,22 +24,18 @@ class LoginViewController: UIViewController {
     }()
     
     
-    // TODO: present next screen modally
-    
+    // TODO: DEBUG THIS.
     @objc func loginButtonWasPressed() {
         let myUrl = "https://api.twitter.com/oauth/request_token"
         let homeVCC = UINavigationController(rootViewController: HomeViewController())
-        
-//        self.modalPresentationStyle = .fullScreen
-//        self.modalPresentationStyle = .automatic
-        
-        
+
         TwitterAPICaller.client?.login(url: myUrl, success: {
-            
-//            self.present(homeVCC, animated: true, completion: nil)
+            // THIS SHOULD BE CALLED But for some reason, that does not happen
+            // I am currently not doing any segues here, mainly for debugging purposes
             print("i am logged in")
 
         }, failure: { error in
+            // also no error is printed in console
             print(error.localizedDescription)
         })
         

@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// for debugging purposes, you can ignore this
+/// i am not doing anything with this.
 class HomeViewController: UIViewController {
     
     let tableview: UITableView = {

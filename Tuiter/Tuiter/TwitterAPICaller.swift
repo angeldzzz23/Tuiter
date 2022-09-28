@@ -9,6 +9,9 @@
 import UIKit
 import BDBOAuth1Manager
 
+
+// MARK: info
+// I did not modify anything here, other than the consumeKey and Consoumer secret 
 class TwitterAPICaller: BDBOAuth1SessionManager {
     static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "Zm1yjKSQdyfxtCdbhIMEQsKSl", consumerSecret: "SpUfsDsK1DMhOY5YO28noOduZrPO25TlHiWo4d7UJutltMOnmX")
     var loginSuccess: (() -> ())?
@@ -23,6 +26,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
         })
     }
     
+    // TODO: DEBUG THIS.
     func login(url: String, success: @escaping () -> (), failure: @escaping (Error) -> ()){
         loginSuccess = success
         loginFailure = failure
