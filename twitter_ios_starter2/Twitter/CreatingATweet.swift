@@ -59,6 +59,8 @@ class CreatingATweet: UIViewController {
             }, failure: { error in
                 print("error: \(error.localizedDescription)")
             })
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

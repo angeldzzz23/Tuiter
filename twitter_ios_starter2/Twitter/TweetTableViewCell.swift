@@ -49,6 +49,8 @@ class TweetTableViewCell: UITableViewCell {
         addSubviews()
         addConstraints()
         
+        self.clipsToBounds = true
+        
     }
     
     private  func addSubviews() {

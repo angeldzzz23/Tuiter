@@ -28,6 +28,11 @@ class HomeViewController: UIViewController {
         
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
+    }
+    
     @objc  func loadTweet() {
         let myURl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let params = ["count": 20]
