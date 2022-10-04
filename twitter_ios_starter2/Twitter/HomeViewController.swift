@@ -71,7 +71,12 @@ class HomeViewController: UIViewController {
         let btn = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOutButtonWasPressed))
         let backButton: UIBarButtonItem = btn
             self.navigationItem.leftBarButtonItem = backButton
-
+        
+        let tweetBtn = UIBarButtonItem(title: "tweet", style: .plain, target: self, action: #selector(tweetButtonWasPressed))
+        let rightButton: UIBarButtonItem = tweetBtn
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+        
     }
     
     
@@ -79,6 +84,16 @@ class HomeViewController: UIViewController {
         TwitterAPICaller.client?.logout()
         self.dismiss(animated: true)
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
+    }
+    
+    @objc func tweetButtonWasPressed() {
+        
+        let createATweet = UINavigationController(rootViewController: CreatingATweet())
+        
+        createATweet.modalPresentationStyle = .fullScreen
+        
+        
+        self.present(createATweet, animated: true)
     }
     
     
