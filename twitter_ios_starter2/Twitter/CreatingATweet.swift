@@ -53,7 +53,13 @@ class CreatingATweet: UIViewController {
     }
     
     @objc func tweetButtonWasPressed() {
-        
+        if !textview.text.isEmpty {
+            TwitterAPICaller.client?.postTweet(tweetString: textview.text, success: {
+                self.dismiss(animated: true)
+            }, failure: { error in
+                print("error: \(error.localizedDescription)")
+            })
+        }
     }
     
     
