@@ -19,6 +19,9 @@ class TweetTableViewCell: UITableViewCell {
         return imgview
     }()
     
+    
+    var tweetId: Int = -1
+    
     let username: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -41,6 +44,61 @@ class TweetTableViewCell: UITableViewCell {
         return label
     }()
     
+    // adding buttons to like and retweet
+    
+    let likeButton: UIButton = {
+        let btn = UIButton()
+//        btn.backgroundColor = .red
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setImage(UIImage(named: "favor-icon-1"), for: .normal)
+        btn.addTarget(self, action: #selector(likeTweet), for: .touchUpInside)
+
+        
+        return btn
+    }()
+    
+    let retTweetButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setImage(UIImage(named: "retweet-icon"), for: .normal)
+        btn.addTarget(self, action: #selector(retTweetButtonWasPressed), for: .touchUpInside)
+        return btn
+    }()
+    
+    var favorited: Bool = false
+    
+    func setFavorite(_ isFavorited: Bool) {
+        favorited = isFavorited
+        if favorited {
+            likeButton.setImage(UIImage(named: "favor-icon-red"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(named: "favor-icon-1"), for: .normal)
+        }
+    }
+    
+    @objc func retTweetButtonWasPressed() {
+        
+        
+    }
+    
+    @objc func likeTweet() {
+        let toBeFavorited = !favorited
+        if toBeFavorited {
+            TwitterAPICaller.client?.favotireTweet(tweetId: tweetId, success: {
+                self.setFavorite(true)
+            }, failure: { error in
+                print("favorited did not succeed: \(error.localizedDescription)")
+            })
+        }else {
+            TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
+                self.setFavorite(false)
+            }, failure: { error in
+                print("unfavorited: \(error.localizedDescription)")
+            })
+        }
+        
+    }
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,6 +115,8 @@ class TweetTableViewCell: UITableViewCell {
         contentView.addSubview(userImageView)
         contentView.addSubview(username)
         contentView.addSubview(tweetLbl)
+        contentView.addSubview(likeButton)
+        contentView.addSubview(retTweetButton)
     }
     
     private func addConstraints() {
@@ -81,7 +141,18 @@ class TweetTableViewCell: UITableViewCell {
             tweetLbl.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 4),
             tweetLbl.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 8),
             tweetLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tweetLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+//            tweetLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            likeButton.topAnchor.constraint(equalTo: tweetLbl.bottomAnchor, constant: 37),
+            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        ])
+        
+        NSLayoutConstraint.activate([
+            retTweetButton.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor),
+            retTweetButton.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: -10)
         ])
     }
     
