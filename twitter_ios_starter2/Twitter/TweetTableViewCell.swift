@@ -21,6 +21,7 @@ class TweetTableViewCell: UITableViewCell {
     
     
     var tweetId: Int = -1
+    var retweeted: Bool = false
     
     let username: UILabel = {
         let label = UILabel()
@@ -77,8 +78,24 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @objc func retTweetButtonWasPressed() {
+        TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
+            self.setRetweeted(true)
+            
+        }, failure: { error in
+            print("error is retweeting \(error)")
+        })
         
-        
+    }
+    
+    func setRetweeted(_ isRetweeted: Bool) {
+        if isRetweeted {
+            retTweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
+//            retTweetButton.isEnabled = true
+        } else {
+            retTweetButton.setImage(UIImage(named: "retweet-icon"), for: .normal)
+//            retTweetButton.isEnabled = false
+            
+        }
     }
     
     @objc func likeTweet() {

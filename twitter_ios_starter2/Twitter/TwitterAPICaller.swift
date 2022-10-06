@@ -24,7 +24,7 @@ import BDBOAuth1Manager
  */
 
 class TwitterAPICaller: BDBOAuth1SessionManager {    
-    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "87XycN0Lxgwhd9U98YLUKy0LV", consumerSecret: "r2gfaOIVmZWlj8t5ciwtsjHBdpNXLMEHL8hiXcVPyVAyfmm4WE")
+    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "Ux9rfhF32txDYUeHXjkEUWBtt", consumerSecret: "6z9sU7uHDa75rJ0oBlB3AgVlHLPCNlYucrZDFd0zuNewFmaIFq")
     var loginSuccess: (() -> ())?
     var loginFailure: ((Error) -> ())?
     
@@ -106,6 +106,16 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
             failure(error)
         })
         
+    }
+    
+    func retweet(tweetId: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        let url = "https://api.twitter.com/1.1/statuses/retweet/\(tweetId).json"
+        TwitterAPICaller.client?.post(url, parameters: ["id": tweetId ], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+
     }
     
     
