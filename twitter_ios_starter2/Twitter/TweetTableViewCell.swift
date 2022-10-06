@@ -78,7 +78,6 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @objc func retTweetButtonWasPressed() {
-        print("hehr")
         TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
             self.setRetweeted(true)
             

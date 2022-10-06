@@ -134,7 +134,6 @@ extension HomeViewController: UITableViewDataSource {
         let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageUrl!)
         if let imageData = data {
-//             set the cell imageview to the image
             cell.userImageView.image = UIImage(data: imageData)
         }
         
