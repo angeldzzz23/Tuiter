@@ -140,7 +140,8 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
-        
+        print(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         return cell
     }
 }
