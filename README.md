@@ -18,6 +18,8 @@ The following **bonus** features are implemented:
 - [ ] User can view their profile in a profile tab. (3pts)
 - [ ] User sees embedded images in tweet if available. (3pts)
 
+Note: This app will not run since twitter has changed their policy for when it comes to their 
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
